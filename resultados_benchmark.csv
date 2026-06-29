@@ -1,0 +1,17 @@
+cenario,valor,moedas,algoritmo,tempo_ms,memoria_kb,total_conjuntos,conjunto_do_melhor,num_moedas
+Canônico pequeno,30,"[25, 10, 5, 1]",Guloso,0.000298,0.078125,1,1,2
+Canônico pequeno,30,"[25, 10, 5, 1]",Backtracking,0.043392,1.445312,11,11,2
+Canônico médio,175,"[100, 50, 25, 10, 5, 1]",Guloso,0.000405,0.078125,1,1,3
+Canônico médio,175,"[100, 50, 25, 10, 5, 1]",Backtracking,2.669686,4.648438,74,74,3
+Canônico grande,400,"[100, 50, 25, 10, 5, 1]",Guloso,0.000466,0.109375,1,1,4
+Canônico grande,400,"[100, 50, 25, 10, 5, 1]",Backtracking,33.454038,14.125000,174,174,4
+Sem solução,7,"[4, 2]",Guloso,0.000225,0.078125,0,0,impossível
+Sem solução,7,"[4, 2]",Backtracking,0.002638,0.546875,0,0,impossível
+Guloso falha (1),6,"[4, 3, 1]",Guloso,0.000361,0.078125,1,1,3
+Guloso falha (1),6,"[4, 3, 1]",Backtracking,0.005173,0.531250,3,3,2
+Guloso falha (2),30,"[10, 6, 1]",Guloso,0.000414,0.078125,1,1,3
+Guloso falha (2),30,"[10, 6, 1]",Backtracking,0.029925,1.265625,7,7,3
+Moedas arbitrárias,100,"[17, 11, 7, 3]",Guloso,0.000440,0.109375,0,0,impossível
+Moedas arbitrárias,100,"[17, 11, 7, 3]",Backtracking,0.326243,1.140625,20,18,8
+Alta granularidade,200,"[50, 20, 10, 5, 2, 1]",Guloso,0.000395,0.078125,1,1,4
+Alta granularidade,200,"[50, 20, 10, 5, 2, 1]",Backtracking,46.986454,5.281250,249,249,4

@@ -7,6 +7,7 @@ from troco_backtracking import (
     listar_todas_combinacoes,
 )
 
+from troco_guloso import encontrar_troco_guloso
 
 def ler_inteiro(mensagem: str) -> int:
     while True:
@@ -29,18 +30,21 @@ def ler_moedas() -> list[int]:
 
 
 def main() -> None:
-    print("Problema do Troco — Backtracking\n")
+    print("Problema do Troco — Guloso vs Backtracking\n")
 
     valor = ler_inteiro("Valor a ser pago (R$): ")
     moedas = ler_moedas()
 
     print(f"\nBuscando solução para R${valor} com moedas {moedas}...\n")
 
+    guloso = encontrar_troco_guloso(valor, moedas)
     minimo = encontrar_troco_minimo(valor, moedas)
     if minimo is None:
         print("Não é possível formar esse valor com as moedas informadas.")
         return
 
+    print(f"Troco guloso: {len(guloso)} moeda(s)")
+    print(f"Combinação gulosa: {formatar_troco(guloso)}")
     print(f"Troco mínimo: {len(minimo)} moeda(s)")
     print(f"Combinação: {formatar_troco(minimo)}")
 

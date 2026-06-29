@@ -14,13 +14,17 @@ def encontrar_troco_minimo(valor: int, moedas: list[int]) -> list[int] | None:
     moedas = sorted(moedas, reverse=True)
     melhor: list[int] | None = None
     solucao_atual: list[int] = []
+    total_conjuntos = 0
+    conjunto_do_melhor = 0
 
     def backtrack(valor_restante: int, indice: int) -> None:
-        nonlocal melhor
+        nonlocal melhor, total_conjuntos, conjunto_do_melhor
 
         if valor_restante == 0:
+            total_conjuntos += 1
             if melhor is None or len(solucao_atual) < len(melhor):
                 melhor = solucao_atual.copy()
+                conjunto_do_melhor = total_conjuntos
             return
 
         if valor_restante < 0 or indice >= len(moedas):
@@ -38,7 +42,7 @@ def encontrar_troco_minimo(valor: int, moedas: list[int]) -> list[int] | None:
         solucao_atual.pop()
 
     backtrack(valor, 0)
-    return melhor
+    return melhor, total_conjuntos, conjunto_do_melhor
 
 
 def listar_todas_combinacoes(valor: int, moedas: list[int]) -> list[list[int]]:
