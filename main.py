@@ -37,14 +37,17 @@ def main() -> None:
 
     print(f"\nBuscando solução para R${valor} com moedas {moedas}...\n")
 
-    guloso = encontrar_troco_guloso(valor, moedas)
-    minimo = encontrar_troco_minimo(valor, moedas)
+    guloso, sucesso_guloso, _ = encontrar_troco_guloso(valor, moedas)
+    minimo, total_conjuntos, conjunto_do_melhor = encontrar_troco_minimo(valor, moedas)
     if minimo is None:
         print("Não é possível formar esse valor com as moedas informadas.")
         return
+    if not sucesso_guloso:
+        print("Troco guloso: não foi possível formar com este conjunto de moedas")
+    else:
+        print(f"Troco guloso: {len(guloso)} moeda(s)")
+        print(f"Combinação gulosa: {formatar_troco(guloso)}")
 
-    print(f"Troco guloso: {len(guloso)} moeda(s)")
-    print(f"Combinação gulosa: {formatar_troco(guloso)}")
     print(f"Troco mínimo: {len(minimo)} moeda(s)")
     print(f"Combinação: {formatar_troco(minimo)}")
 

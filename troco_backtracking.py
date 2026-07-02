@@ -91,12 +91,12 @@ if __name__ == "__main__":
 
     print("=== Troco mínimo (Backtracking) ===\n")
     for valor, moedas in exemplos:
-        resultado = encontrar_troco_minimo(valor, moedas)
+        minimo, total_conjuntos, conjunto_do_melhor = encontrar_troco_minimo(valor, moedas)
         print(f"Valor: R${valor} | Moedas: {moedas}")
-        if resultado is None:
+        if minimo is None:
             print("  Resultado: impossível formar o troco\n")
         else:
-            print(f"  Mínimo: {len(resultado)} moeda(s) -> {formatar_troco(resultado)}")
+            print(f"  Mínimo: {len(minimo)} moeda(s) -> {formatar_troco(minimo)}")
             todas = listar_todas_combinacoes(valor, moedas)
             print(f"  Combinações possíveis: {len(todas)}")
             for comb in todas[:5]:

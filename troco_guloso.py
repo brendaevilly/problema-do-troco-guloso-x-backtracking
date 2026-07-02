@@ -33,9 +33,9 @@ if __name__ == "__main__":
  
     print("=== Troco (Algoritmo Guloso) ===\n")
     for valor, moedas in exemplos:
-        resultado = encontrar_troco_guloso(valor, moedas)
-        print(f"Valor: R${valor} | Moedas: {moedas}")
-        if resultado is None:
+        guloso, sucesso_guloso, _ = encontrar_troco_guloso(valor, moedas)
+        print(f"Value: R${valor} | Moedas: {moedas}")
+        if guloso is None:
             print("  Resultado: impossível formar o troco\n")
         else:
             print(f"  Solução gulosa: {len(resultado)} moeda(s) -> {formatar_troco(resultado)}\n")
